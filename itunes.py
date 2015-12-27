@@ -9,7 +9,9 @@ class AppCrawler:
         self.apps = []
 
     def crawl(self):
-        self.get_app_from_link(self.starting_url)
+        app = self.get_app_from_link(self.starting_url)
+        self.apps.append(app)
+
         return
 
     def get_app_from_link(self, link):
@@ -22,10 +24,8 @@ class AppCrawler:
         links = tree.xpath('//div[@class="center-stack"]//*/a[@class="name"]/@href')
 
         app = App(name, developer, price, links)
-
-        self.apps.append(app)
-
-        return
+        
+        return app
 
 class App:
 
