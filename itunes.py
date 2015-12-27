@@ -20,7 +20,7 @@ class AppCrawler:
             for link in self.depth_links[self.current_depth]:
                 current_app = self.get_app_from_link(link)
                 current_links.extend(current_app.links)
-                self.apps.append(app)
+                self.apps.append(current_app)
             self.current_depth += 1
             self.depth_links.append(current_links);
 
@@ -36,7 +36,7 @@ class AppCrawler:
         links = tree.xpath('//div[@class="center-stack"]//*/a[@class="name"]/@href')
 
         app = App(name, developer, price, links)
-
+        print(app)
         return app
 
 class App:
@@ -52,7 +52,7 @@ class App:
         "\r\nDeveloper: " + self.developer +
         "\r\nPrice: " + self.price + "\r\n")
 
-crawler = AppCrawler("https://itunes.apple.com/us/app/candy-crush-saga/id553834731", 0)
+crawler = AppCrawler("https://itunes.apple.com/us/app/candy-crush-saga/id553834731", 2)
 crawler.crawl()
 
 for app in crawler.apps:
