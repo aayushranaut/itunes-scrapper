@@ -30,5 +30,5 @@ class App:
 crawler = AppCrawler("https://itunes.apple.com/us/app/candy-crush-saga/id553834731", 0)
 crawler.crawl()
 
-for app in self.apps:
+for app in crawler.apps:
     print app
