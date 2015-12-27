@@ -17,8 +17,9 @@ class AppCrawler:
         tree = html.fromstring(start_page.text)
 
         name = tree.xpath('//h1[@itemprop="name"]/text()')[0]
+        developer = tree.xpath('//div[@class="left"]/h2/text()')[0]
 
-        print(name)
+        print (developer)
 
         return
 
