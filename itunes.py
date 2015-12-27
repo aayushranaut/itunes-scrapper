@@ -6,6 +6,8 @@ class AppCrawler:
     def __init__(self, starting_url, depth):
         self.starting_url = starting_url
         self.depth = depth
+        self.current_depth = 0
+        self.depth_links = []
         self.apps = []
 
     def crawl(self):
@@ -24,7 +26,7 @@ class AppCrawler:
         links = tree.xpath('//div[@class="center-stack"]//*/a[@class="name"]/@href')
 
         app = App(name, developer, price, links)
-        
+
         return app
 
 class App:
