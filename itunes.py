@@ -14,10 +14,13 @@ class AppCrawler:
 
     def get_app_from_link(self, link):
         start_page = requests.get(link)
+        tree = html.fromstring(start_page.text)
 
-        
+        name = tree.xpath('//h1[@itemprop="name"]/text()')[0]
+
+        print(name)
+
         return
-
 
 class App:
 
