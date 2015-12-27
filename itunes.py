@@ -18,8 +18,9 @@ class AppCrawler:
 
         name = tree.xpath('//h1[@itemprop="name"]/text()')[0]
         developer = tree.xpath('//div[@class="left"]/h2/text()')[0]
+        price  = tree.xpath('//div[@itemprop="price"]/text()')[0]
 
-        print (developer)
+        print (price)
 
         return
 
