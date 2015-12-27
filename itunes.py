@@ -1,4 +1,5 @@
-
+from lxml import html
+import requests
 
 class AppCrawler:
 
@@ -8,9 +9,13 @@ class AppCrawler:
         self.apps = []
 
     def crawl(self):
+        self.get_app_from_link(self.starting_url)
         return
 
     def get_app_from_link(self, link):
+        start_page = requests.get(link)
+
+        print (start_page.text)
         return
 
 
@@ -31,4 +36,4 @@ crawler = AppCrawler("https://itunes.apple.com/us/app/candy-crush-saga/id5538347
 crawler.crawl()
 
 for app in crawler.apps:
-    print app
+    print(app)
