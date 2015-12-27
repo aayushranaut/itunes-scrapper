@@ -13,6 +13,16 @@ class AppCrawler:
     def crawl(self):
         app = self.get_app_from_link(self.starting_url)
         self.apps.append(app)
+        self.depth_links.append(app.links)
+
+        while self.current_depth < self.depth:
+            current_links = []
+            for link in self.depth_links[self.current_depth]:
+                current_app = self.get_app_from_link(link)
+                current_links.extend(current_app.links)
+                self.apps.append(app)
+            self.current_depth += 1
+            self.depth_links.append(current_links);
 
         return
 
