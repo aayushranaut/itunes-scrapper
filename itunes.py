@@ -21,8 +21,9 @@ class AppCrawler:
         price  = tree.xpath('//div[@itemprop="price"]/text()')[0]
         links = tree.xpath('//div[@class="center-stack"]//*/a[@class="name"]/@href')
 
-        for link in links:
-            print (link)
+        app = App(name, developer, price, links)
+
+        self.apps.append(app)
 
         return
 
@@ -35,9 +36,9 @@ class App:
         self.links = links
 
     def __str__(self):
-        return ("Name: " + self.name.encode('UTF-8') +
-        "\r\nDeveloper: " + self.developer.encode('UTF-8') +
-        "\r\nPrice: " + self.price.encode('UTF-8') + "\r\n")
+        return ("Name: " + self.name +
+        "\r\nDeveloper: " + self.developer +
+        "\r\nPrice: " + self.price + "\r\n")
 
 crawler = AppCrawler("https://itunes.apple.com/us/app/candy-crush-saga/id553834731", 0)
 crawler.crawl()
