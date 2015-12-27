@@ -15,8 +15,13 @@ class AppCrawler:
 
 class App:
 
-    def __init__(self, name, developer, price, links)
+    def __init__(self, name, developer, price, links):
         self.name = name
         self.developer = developer
         self.price = price
         self.links = links
+
+    def __str__(self):
+        return ("Name: " + self.name.encode('UTF-8') +
+        "\r\nDeveloper: " + self.developer.encode('UTF-8') +
+        "\r\nPrice: " + self.price.encode('UTF-8') + "\r\n");
